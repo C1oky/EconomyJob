@@ -32,5 +32,6 @@ public class CheckerAPI {
 
   plugin.getLogger().info("EconomyAPI downloaded successfully!");
   server.getPluginManager().loadPlugin(EconomyAPI);
+  server.getPluginManager().enablePlugin(server.getPluginManager().getPlugin("EconomyAPI"));
  }
 }
