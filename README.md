@@ -1,3 +1,3 @@
 <h1> EconomyJob </h1>
-<h2> EconomyJob plugin for NukkitX </h2>
+<h4> EconomyJob plugin for NukkitX </h4>
 /job start
