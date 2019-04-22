@@ -1,0 +1,15 @@
+name: EconomyJob
+main: me.kkdevs.EconomyJob
+author: KKDevs
+version: 1.0
+api: 1.0.8
+
+commands:
+ job:
+  description: Get a job!
+  usage: "/job start"
+  permission: job.start
+permissions:
+ job.start:
+  description: "Allows the user to run /job start"
+  default: true
