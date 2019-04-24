@@ -9,6 +9,7 @@ import cn.nukkit.block.Block;
 import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.event.EventHandler;
+import cn.nukkit.event.EventPriority;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.block.BlockBreakEvent;
 import cn.nukkit.event.block.BlockPlaceEvent;
@@ -59,7 +60,7 @@ public class EconomyJob extends PluginBase implements Listener {
   this.api = EconomyAPI.getInstance();
  }
 
- @EventHandler
+ @EventHandler(priority = EventPriority.HIGHEST,ignoreCancelled = true)
  public void onBreak(BlockBreakEvent e) {
   Player p = e.getPlayer();
   Block b = e.getBlock();
@@ -80,7 +81,7 @@ public class EconomyJob extends PluginBase implements Listener {
   } catch (Exception ex) {}
  }
 
- @EventHandler
+ @EventHandler(priority = EventPriority.HIGHEST,ignoreCancelled = true)
  public void onPlace(BlockPlaceEvent e) {
   Player p = e.getPlayer();
   Block b = e.getBlock();
