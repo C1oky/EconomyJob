@@ -9,6 +9,7 @@ import cn.nukkit.block.Block;
 import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.event.EventHandler;
+import cn.nukkit.event.EventPriority;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.block.BlockBreakEvent;
 import cn.nukkit.event.block.BlockPlaceEvent;
@@ -59,7 +60,7 @@ public class EconomyJob extends PluginBase implements Listener {
   this.api = EconomyAPI.getInstance();
  }
 
- @EventHandler
+ @EventHandler(priority = EventPriority.HIGHEST,ignoreCancelled = true)
  public void onBreak(BlockBreakEvent e) {
   Player p = e.getPlayer();
   Block b = e.getBlock();
@@ -80,7 +81,7 @@ public class EconomyJob extends PluginBase implements Listener {
   } catch (Exception ex) {}
  }
 
- @EventHandler
+ @EventHandler(priority = EventPriority.HIGHEST,ignoreCancelled = true)
  public void onPlace(BlockPlaceEvent e) {
   Player p = e.getPlayer();
   Block b = e.getBlock();
@@ -117,17 +118,17 @@ public class EconomyJob extends PluginBase implements Listener {
     }
 
     if (args.length == 0) {
-     sender.sendMessage(" §e-§a> §fBuild ànd mine to get paid. \n §e-§a>§f Getting stàrted: /job start");
+     sender.sendMessage(" Â§e-Â§a> Â§fBuild Ã nd mine to get paid. \n Â§e-Â§a>Â§f Getting stÃ rted: /job start");
     }
 
     if (args[0].equals("start")) {
      boolean work = (boolean) this.player.get(sender.getName());
      if (work == false) {
-      sender.sendMessage(TextFormat.GREEN + "Stàrt work");
+      sender.sendMessage(TextFormat.GREEN + "StÃ rt work");
       this.player.set(sender.getName(), true);
       this.getServer().getScheduler().scheduleRepeatingTask(new Task(this), 25);
      } else {
-      sender.sendMessage(" §e-§a> §fDî you work");
+      sender.sendMessage(" Â§e-Â§a> Â§fDÃ® you work");
      }
     }
 
@@ -143,9 +144,9 @@ public class EconomyJob extends PluginBase implements Listener {
 
    if (work == true) {
     if (((Player) sender).isSurvival()) {
-     ((Player) sender).sendPopup(" §e-§a> §fYou work §a<§e- \n §fmoney: §6" + this.api.myMoney((Player) sender));
+     ((Player) sender).sendPopup(" Â§e-Â§a> Â§fYou work Â§a<Â§e- \n Â§fmoney: Â§6" + this.api.myMoney((Player) sender));
     } else {
-     ((Player) sender).sendPopup(" §e-§a> §fYou work §a<§e- \n §l§cGet to survival mode!");
+     ((Player) sender).sendPopup(" Â§e-Â§a> Â§fYou work Â§a<Â§e- \n Â§lÂ§cGet to survival mode!");
     }
    }
   } catch (Exception ex) {}
